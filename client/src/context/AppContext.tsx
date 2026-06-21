@@ -107,7 +107,7 @@ interface AppContextType {
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5000/api';
 
 const DEFAULT_ACTIONS: ActionItem[] = [
   { id: 'switch-led', title: 'Switch to LED bulbs', description: 'Replace standard light bulbs with energy-efficient LEDs.', category: 'energy', co2Reduction: 150, completed: false },
