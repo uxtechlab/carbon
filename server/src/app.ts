@@ -42,6 +42,25 @@ app.get('/api/logs/streaks', apiControllers.getStreaks);
 app.get('/api/careers', apiControllers.getCareers);
 app.post('/api/careers/recommend', apiControllers.createCareerRecommendation);
 
+// Index welcome route
+app.get('/', (req, res) => {
+  res.json({
+    message: 'Welcome to the EcoTrack AI API Server',
+    status: 'online',
+    version: '1.0.0',
+    endpoints: {
+      health: '/health',
+      footprints: '/api/footprints',
+      coach: '/api/coach/analyze',
+      goals: '/api/goals',
+      actions: '/api/actions',
+      logs: '/api/logs',
+      streaks: '/api/logs/streaks',
+      careers: '/api/careers'
+    }
+  });
+});
+
 // Health Check
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date() });
